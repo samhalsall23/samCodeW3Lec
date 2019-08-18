@@ -9,17 +9,19 @@ app.get("/", function (req, res){
     res.send("Hello express app");
 });
 
-app.get("/wiki/:keyword/fit2095/:id",function (req, res){ // column means you are telling express anything after wiki is a parameter
+app.get("/wiki/:keyword/fit2095/:id",function (req, res){ // colon means you are telling express anything after wiki is a parameter
     console.log(req.url); // /wiki/space/fit2095/123
     console.log(req.params); // { keyword: 'space', id: '123' }
     
 });
 
 app.get("/report", function (req, res){
-    console.log(req.url);
-    console.log(req.params);
-    
-    
+    console.log(req.url); //   /report?name=Tim&age=63&address=Mel
+    console.log(req.query); //  { name: 'Tim', age: '63', address: 'Mel' }
+
+    console.log("the name is " + req.query.name);
+    console.log("the age is " + req.query.age);
+
     
 });
 
